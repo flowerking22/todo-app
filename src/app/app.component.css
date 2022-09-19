@@ -1,0 +1,11 @@
+/* * {
+    display: flex;
+}
+
+input {
+    margin: 1rem;
+    justify-content: center;
+} */
+input {
+    border: 2px solid rgb(43, 146, 47);
+}

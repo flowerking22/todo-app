@@ -1,0 +1,33 @@
+<div class="col-6">
+  <h1>{{task}}</h1>
+  <span class="col-2">
+    <input type="text" name="task" placeholder="Enter Your Task" class="btn" [(ngModel)]="task"
+      [ngClass]="{'display-4 text-primary form-control':true,' text_warning':false,'is-valid':task.length>6}" />
+  </span>
+  <button (click)="edit ? onEdit(task) :addtask()" class="btn btn-primary m-4 btn-sm ">
+    {{this.edit ? "onEdit(task)":"addtask()"}}Addtask</button>
+  <button (click)=" this.tasks.splice(0,this.tasks.length)" class="btn btn-danger btn-sm">Delete All Element</button>
+  <ng-container *ngIf="tasks.length>0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Tasks</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let tas of tasks">
+          <tr>
+            <td>{{tas}}</td>
+            <td><button (click)="
+    this.in_index = this.tasks.indexOf(tas);
+    this.edit = true;
+    this.task=tas;">E</button></td>
+            <td><button (click)="onDel(tas)">D</button></td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </ng-container>
+</div>
